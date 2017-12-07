@@ -1,0 +1,17 @@
+{% load static %}
+{% load render_bundle from webpack_loader %}
+
+<html>
+    <head>
+        <title>
+            Hello World
+        </title>
+        <link rel="stylesheet" href="{% static "css/base.css" %}">
+    </head>
+    <body>
+        <a href="{% static "test.txt" %}"><h1>This is a test</h1></a>
+
+        <div id="cont"></div>
+        {% render_bundle 'main' %}
+    </body>
+</html>

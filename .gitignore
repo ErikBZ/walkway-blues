@@ -1,0 +1,10 @@
+secretkey
+
+*.swp
+*.pyc
+*.sqlite3
+
+node_modules/
+static/
+webpack-stats.json
+*/__pycache__/
