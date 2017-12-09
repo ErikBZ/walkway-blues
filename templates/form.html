@@ -1,10 +1,7 @@
-{% load render_bundle from webpack_loader %}
-<html>
-    <head>
-
-    </head>
-    <body>
-        <div id="cont"></div>
-        {% render_bundle 'app' %}
-    </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+    {% load render_bundle from webpack_loader %}
+    <div id="other_div"></div>
+    {# This is getting the actual app from bundles #}
+    {% render_bundle 'app' %}
+{% endblock content %}
