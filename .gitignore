@@ -5,7 +5,7 @@ secretkey
 *.sqlite3
 
 node_modules/
-static/bundles
+static/bundles/
 webpack-stats.json
 */__pycache__/
 .vscode/
