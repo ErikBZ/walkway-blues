@@ -1,0 +1,11 @@
+{% load render_bundle from webpack_loader %}
+{% load static %}
+<html>
+    <head>
+        <title>Make an Appointment!</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        {% render_bundle 'mk_appt' %}
+    </body>
+</html>

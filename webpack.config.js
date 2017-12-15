@@ -16,8 +16,8 @@ module.exports = {
     // this is the way to have multiple entry points
     // entry: "./nobody_speak/static/js/index",
     entry:{
-        main: "./nobody_speak/static/js/index",
-        app: "./nobody_speak/static/js/form",
+        mk_appt: "./nobody_speak/static/js/mk_appt",
+        chk_appt: "./nobody_speak/static/js/chk_appt",
     },
 
     output: {

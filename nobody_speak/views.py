@@ -6,3 +6,6 @@ def home(request):
 
 def other(request):
     return render(request, "form.html")
+
+def make_appointment(request):
+    return render(request, "make_appointment.html")
