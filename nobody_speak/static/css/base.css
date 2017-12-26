@@ -1,0 +1,8 @@
+/* 
+    This is the base css file which will give the whole 
+    website a good look and feel
+*/
+
+.error {
+    border: 1px solid red;
+}
