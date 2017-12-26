@@ -17,10 +17,18 @@ class NameForm extends React.Component{
     // updates the value, but i'm not to sure how
     // Since it's a name anything can really be input
     handleChange(event){
-        if(event.target.value.length <= 25){
-            this.props.onUpdate(event.target.value);
-            this.setState({value: event.target.value});
+        // checking for alpha characters or unicode character?
+        var value = event.target.value;
+        const re = /^[a-zA-Z]+$/i;
+        const inputValid = re.test(value);
+        // if value does not conform update parent
+        // with no string
+        if(!(value.length<= 25 && inputValid)){
+            value = "";
         }
+
+        this.props.onUpdate(value);
+        this.setState({value: value});
     }
     
     // what is going on right now
@@ -47,18 +55,26 @@ class EmailForm extends React.Component{
 
     }
 
+    // cool looks like this work for now
+    // i just need to add the regex matching
     handleChange(event){
+        var emailValue = event.target.value;
         const emailLengthLimit = 254;
-        const emailWithinLimit = event.target.value.length <= emailLengthLimit;
-        // do the checking up here
-        const emailValid = event.target.value[0] === 'a' && emailLengthLimit;
-        if(emailValid){
-            this.props.onUpdate({value: event.target.value, pass: emailValid});
-            this.setState({email: event.target.value});
+        const emailWithinLimit = emailValue.length <= emailLengthLimit;
+        const re = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
+        // do the email matching here
+        // const emailValid = event.target.value[0] === 'a' && emailLengthLimit;
+        const emailValid = emailWithinLimit &&
+            // for now this work, so i'll keep it
+            // the other RFC compliant regexes are pretty long
+            re.test(emailvalue);
+
+        if(!emailValid){
+            emailValue = "";
         }
-        else{
-            this.props.onUpdate({value: "", pass: emailValid});
-        }
+
+        this.props.onUpdate({value: emailValue, pass: emailValid});
+        this.setState({email: event.target.value});
     }
 
     // remember this needs to return stuff.

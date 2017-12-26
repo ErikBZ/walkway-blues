@@ -1,4 +1,6 @@
 secretkey
+.eslintrc.js
+package-lock.json
 
 *.swp
 *.pyc
